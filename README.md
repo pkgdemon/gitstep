@@ -10,7 +10,7 @@ git clone https://github.com/pkgdemon/gitstep.git --recurse-submodules
 
 2. Enter repository and install using make:
 ```
-sudo make install
+cd gitstep && sudo make install
 ```
 
 ## Uninstallation
