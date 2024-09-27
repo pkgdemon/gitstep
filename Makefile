@@ -37,3 +37,17 @@ uninstall: check_root
 	else \
 	  echo "System appears to be already uninstalled.  Nothing was removed"; \
 	fi
+
+
+# Define the clean target
+clean: check_root
+	@echo "Cleaning main project..."
+	@WORKDIR=`pwd`; \
+	if [ -d "$$WORKDIR" ]; then \
+		echo "Cleaning the main project directory"; \
+		git clean -fdx; \
+		git reset --hard; \
+	fi
+	@echo "Cleaning git submodules..."
+	@git submodule foreach --recursive 'echo "Cleaning $$name"; git clean -fdx; git reset --hard'
+	@echo "Clean complete."
