@@ -21,15 +21,6 @@ install: check_root
       --with-layout=gnustep \
 	  --with-library-combo=ng-gnu-gnu \
 	&& gmake || exit 1 && gmake install; \
-	. /System/Makefiles/GNUstep.sh; \
-	mkdir -p $$WORKDIR/libobjc2/Build; \
-	cd $$WORKDIR/libobjc2/Build && pwd && ls && cmake .. \
-	  -DGNUSTEP_INSTALL_TYPE=SYSTEM \
-	  -DCMAKE_BUILD_TYPE=Release \
-	  -DCMAKE_C_COMPILER=clang \
-	  -DCMAKE_CXX_COMPILER=clang++; \
-	gmake -j"${CPUS}" || exit 1; \
-	gmake install; \
 	fi;
 
 # Define the uninstall target
