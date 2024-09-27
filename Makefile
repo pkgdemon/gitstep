@@ -19,6 +19,7 @@ install: check_root
 	cd $$WORKDIR/tools-make && ./configure \
 	  --prefix="/" \
       --with-layout=gnustep \
+	  --with-config-file=/System/Library/Defaults/GNUstep.conf \
 	  --with-library-combo=ng-gnu-gnu \
 	&& gmake || exit 1 && gmake install; \
 	fi;
