@@ -1,0 +1,42 @@
+[submodule "libobjc2"]
+	path = libobjc2
+	url = https://github.com/gnustep/libobjc2.git
+[submodule "tools-scripts"]
+	path = tools-scripts
+	url = https://github.com/gnustep/tools-scripts
+[submodule "tools-make"]
+	path = tools-make
+	url = https://github.com/gnustep/tools-make.git
+[submodule "libs-base"]
+	path = libs-base
+	url = https://github.com/gnustep/libs-base
+[submodule "libs-gui"]
+	path = libs-gui
+	url = https://github.com/gnustep/libs-gui
+[submodule "libs-back"]
+	path = libs-back
+	url = https://github.com/gnustep/libs-back
+[submodule "apps-gworkspace"]
+	path = apps-gworkspace
+	url = https://github.com/gnustep/apps-gworkspace.git
+[submodule "apps-projectcenter"]
+	path = apps-projectcenter
+	url = https://github.com/gnustep/apps-projectcenter
+[submodule "apps-gorm"]
+	path = apps-gorm
+	url = https://github.com/gnustep/apps-gorm
+[submodule "apps-systempreferences"]
+	path = apps-systempreferences
+	url = https://github.com/gnustep/apps-systempreferences
+[submodule "apps-easydiff"]
+	path = apps-easydiff
+	url = https://github.com/gnustep/apps-easydiff
+[submodule "gap"]
+	path = gap
+	url = https://github.com/gnustep/gap
+[submodule "apps-topbar"]
+	path = apps-topbar
+	url = https://github.com/gnustep/apps-topbar
+[submodule "plugins-themes-Gtk"]
+	path = plugins-themes-Gtk
+	url = https://github.com/gnustep/plugins-themes-Gtk
