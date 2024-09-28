@@ -36,6 +36,7 @@ install: check_root
 	  -DCMAKE_CXX_COMPILER=clang++ \
 	&& eval "$$MAKE" || exit 1 \
 	&& eval "$$MAKE" install; \
+	cd $$WORKDIR/libs-base && ./configure --with-installation-domain=SYSTEM && eval "$$MAKE" || exit 1 && eval "$$MAKE" install; \
 	fi;
 
 # Define the uninstall target
