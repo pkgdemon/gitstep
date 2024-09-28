@@ -7,6 +7,13 @@ check_root:
 		exit 1; \
 	fi
 
+# Set MAKE variable based on availability of gmake
+ifeq ($(shell gmake -v >/dev/null 2>&1 && echo yes),yes)
+	MAKE = gmake -j$(shell nproc)
+else
+	MAKE = make -j$(shell nproc)
+endif
+
 # Define the install target
 install: check_root
 	@if [ -d "/System" ]; then \
@@ -39,7 +46,7 @@ install: check_root
       --with-layout=gnustep \
 	  --with-config-file=/System/Library/Defaults/GNUstep.conf \
 	  --with-library-combo=ng-gnu-gnu \
-	&& gmake || exit 1 && gmake install; \
+	&& $(MAKE) || exit 1 && $(MAKE) install; \
 	fi;
 
 # Define the uninstall target
