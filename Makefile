@@ -33,8 +33,8 @@ install: check_root
 	  -DGNUSTEP_INSTALL_TYPE=SYSTEM \
 	  -DCMAKE_BUILD_TYPE=Release \
 	  -DCMAKE_C_COMPILER=clang \
-	  -DCMAKE_CXX_COMPILER=clang++; \
-	&& eval "$$MAKE"" || exit 1; \
+	  -DCMAKE_CXX_COMPILER=clang++ \
+	&& eval "$$MAKE" || exit 1 \
 	&& eval "$$MAKE" install; \
 	fi;
 
