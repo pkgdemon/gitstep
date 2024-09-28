@@ -37,6 +37,10 @@ install: check_root
 	&& eval "$$MAKE" || exit 1 \
 	&& eval "$$MAKE" install; \
 	cd $$WORKDIR/libs-base && ./configure --with-installation-domain=SYSTEM && eval "$$MAKE" || exit 1 && eval "$$MAKE" install; \
+	cd $$WORKDIR/libs-gui && ./configure && eval "$$MAKE" || exit 1 || exit 1 && eval "$$MAKE" install; \
+	cd $$WORKDIR/libs-back && export fonts=no && ./configure && eval "$$MAKE" || exit 1 && eval "$$MAKE" install; \
+	cd $$WORKDIR/workspace && ./configure && eval "$$MAKE" && eval "$$MAKE" install; \
+	cd $$WORKDIR/apps-systempreferences && eval "$$MAKE" && eval "$$MAKE" install; \
 	fi;
 
 # Define the uninstall target
