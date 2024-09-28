@@ -57,10 +57,10 @@ uninstall: check_root
 	  removed="$$removed /Local"; \
 	  echo "Removed /Local"; \
 	fi; \
-	if [ -f "/etc/GNUstep.conf" ]; then \
-	  rm -f /etc/GNUstep.conf; \
-	  removed="$$removed /etc/GNUstep.conf"; \
-	  echo "Removed /etc/GNUstep.conf"; \
+	if [ -f "/etc/GNUstep/GNUstep.conf" ]; then \
+	  rm -f /etc/GNUstep/GNUstep.conf; \
+	  removed="$$removed /etc/GNUstep/GNUstep.conff"; \
+	  echo "Removed /etc/GNUstep/GNUstep.conf"; \
 	fi; \
 	if [ -n "$$removed" ]; then \
 	  echo "Items removed: $$removed"; \
