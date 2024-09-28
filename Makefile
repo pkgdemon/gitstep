@@ -14,7 +14,6 @@ install: check_root
 	  WORKDIR=`pwd`; \
 	  CPUS=`nproc`; \
 	  OS=`uname -s | tr '[:upper:]' '[:lower:]'`; \
-	  # Detect the make command \
 	  case "$$(command -v gmake 2>/dev/null)" in \
 	    *gmake) \
 	      MAKE="gmake -j$$CPUS"; \
@@ -50,7 +49,7 @@ install: check_root
 	  mkdir -p /etc/profile.d >/dev/null 2>&1 || true; \
 	  ln -sf /usr/GNUstep/System/Library/Makefiles/GNUstep.sh /etc/profile.d/GNUstep.sh >/dev/null 2>&1 || true; \
 	  echo "Symlinked /usr/GNUstep/System/Library/Makefiles/GNUstep.sh to /etc/profile.d/GNUstep.sh"; \
-	fi;
+	fi
 
 # Define the uninstall target
 uninstall: check_root
