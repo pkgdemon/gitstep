@@ -60,7 +60,6 @@ uninstall: check_root
 	  echo "Removed /etc/GNUstep/GNUstep.conf"; \
 	fi; \
 	if [ -n "$$removed" ]; then \
-	  echo "Items removed: $$removed"; \
 	  exit 0; \
 	else \
 	  echo "No items were removed. It appears that nothing was installed yet."; \
