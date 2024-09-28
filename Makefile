@@ -57,11 +57,16 @@ uninstall: check_root
 	  removed="$$removed /Local"; \
 	  echo "Removed /Local"; \
 	fi; \
+	if [ -f "/etc/GNUstep.conf" ]; then \
+	  rm -f /etc/GNUstep.conf; \
+	  removed="$$removed /etc/GNUstep.conf"; \
+	  echo "Removed /etc/GNUstep.conf"; \
+	fi; \
 	if [ -n "$$removed" ]; then \
-	  echo "Directories removed: $$removed"; \
+	  echo "Items removed: $$removed"; \
 	  exit 0; \
 	else \
-	  echo "No directories were removed. It appears that nothing was installed yet."; \
+	  echo "No items were removed. It appears that nothing was installed yet."; \
 	fi
 
 # Define the clean target
