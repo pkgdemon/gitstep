@@ -22,12 +22,6 @@ install: check_root
 			MAKE="make -j$$CPUS"; \
 			;; \
 	esac; \
-	# Detect the make command \
-	if command -v gmake >/dev/null 2>&1; then \
-		MAKE="gmake -j$$CPUS"; \
-	else \
-		MAKE="make -j$$CPUS"; \
-	fi; \
 	export GNUSTEP_INSTALLATION_DOMAIN="SYSTEM"; \
 	cd $$WORKDIR/tools-make && ./configure \
       --with-layout=gnustep \
