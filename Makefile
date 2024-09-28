@@ -24,7 +24,6 @@ install: check_root
 	cd $$WORKDIR/tools-make && ./configure \
 	  --prefix="/" \
       --with-layout=gnustep \
-	  --with-config-file=/System/Library/Defaults/GNUstep.conf \
 	  --with-library-combo=ng-gnu-gnu \
 	&& eval "$$MAKE" || exit 1 && eval "$$MAKE install"; \
 	. /System/Library/Makefiles/GNUstep.sh; \
