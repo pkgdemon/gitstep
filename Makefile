@@ -39,8 +39,9 @@ install: check_root
 	cd $$WORKDIR/libs-base && ./configure --with-installation-domain=SYSTEM && eval "$$MAKE" || exit 1 && eval "$$MAKE" install; \
 	cd $$WORKDIR/libs-gui && ./configure && eval "$$MAKE" || exit 1 || exit 1 && eval "$$MAKE" install; \
 	cd $$WORKDIR/libs-back && export fonts=no && ./configure && eval "$$MAKE" || exit 1 && eval "$$MAKE" install; \
-	cd $$WORKDIR/gworkspace && ./configure && eval "$$MAKE" && eval "$$MAKE" install; \
+	cd $$WORKDIR/apps-gworkspace && ./configure && eval "$$MAKE" && eval "$$MAKE" install; \
 	cd $$WORKDIR/apps-systempreferences && eval "$$MAKE" && eval "$$MAKE" install; \
+	unset GNUSTEP_INSTALLATION_DOMAIN; \
 	fi;
 
 # Define the uninstall target
