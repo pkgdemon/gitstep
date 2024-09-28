@@ -53,10 +53,16 @@ uninstall: check_root
 	  removed="/System"; \
 	  echo "Removed /System"; \
 	fi; \
+	if [ -d "/Local" ]; then \
+	  rm -rf /Local; \
+	  removed="$$removed /Local"; \
+	  echo "Removed /Local"; \
+	fi; \
 	if [ -n "$$removed" ]; then \
+	  echo "Directories removed: $$removed"; \
 	  exit 0; \
 	else \
-	  echo "System appears to be already uninstalled.  Nothing was removed"; \
+	  echo "No directories were removed. It appears that nothing was installed yet."; \
 	fi
 
 # Define the clean target
