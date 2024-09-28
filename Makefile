@@ -22,7 +22,6 @@ install: check_root
 	fi; \
 	export GNUSTEP_INSTALLATION_DOMAIN="SYSTEM"; \
 	cd $$WORKDIR/tools-make && ./configure \
-	  --prefix="/" \
       --with-layout=gnustep \
 	  --with-library-combo=ng-gnu-gnu \
 	&& eval "$$MAKE" || exit 1 && eval "$$MAKE install"; \
