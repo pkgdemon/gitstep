@@ -59,7 +59,7 @@ uninstall: check_root
 	fi; \
 	if [ -f "/etc/GNUstep/GNUstep.conf" ]; then \
 	  rm -f /etc/GNUstep/GNUstep.conf; \
-	  removed="$$removed /etc/GNUstep/GNUstep.conff"; \
+	  removed="$$removed /etc/GNUstep/GNUstep.conf"; \
 	  echo "Removed /etc/GNUstep/GNUstep.conf"; \
 	fi; \
 	if [ -n "$$removed" ]; then \
