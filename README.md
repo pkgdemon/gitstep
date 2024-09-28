@@ -2,7 +2,7 @@
 # GitStep
 
 ## Overview
-GitStep is a multi-platform installer designed to set up GNUstep with the GNUstep layout using the `/` prefix. It simplifies the process of installing GNUstep across various operating systems, ensuring a consistent environment setup.
+GitStep is a multi-platform installer designed to set up GNUstep with the GNUstep layout using the `/usr/GNUstep` prefix. It simplifies the process of installing GNUstep across various operating systems, ensuring a consistent environment setup.
 
 ## Prerequisites
 - **Git**: Ensure `git` is installed on your system.

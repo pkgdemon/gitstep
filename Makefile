@@ -49,15 +49,10 @@ install: check_root
 # Define the uninstall target
 uninstall: check_root
 	@removed=""; \
-	if [ -d "/System" ]; then \
-	  rm -rf /System; \
-	  removed="/System"; \
-	  echo "Removed /System"; \
-	fi; \
-	if [ -d "/Local" ]; then \
-	  rm -rf /Local; \
-	  removed="$$removed /Local"; \
-	  echo "Removed /Local"; \
+	if [ -d "/usr/GNUstep" ]; then \
+	  rm -rf /usr/GNUstep; \
+	  removed="/usr/GNUstep"; \
+	  echo "Removed /usr/GNUstep"; \
 	fi; \
 	if [ -f "/etc/GNUstep/GNUstep.conf" ]; then \
 	  rm -f /etc/GNUstep/GNUstep.conf; \
