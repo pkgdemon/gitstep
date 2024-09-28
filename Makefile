@@ -25,7 +25,7 @@ install: check_root
       --with-layout=gnustep \
 	  --with-library-combo=ng-gnu-gnu \
 	&& eval "$$MAKE" || exit 1 && eval "$$MAKE install"; \
-	. /System/Library/Makefiles/GNUstep.sh; \
+	. /usr/GNUstep/System/Library/Makefiles/GNUstep.sh; \
 	mkdir -p $$WORKDIR/libobjc2/Build; \
 	cd $$WORKDIR/libobjc2/Build && pwd && ls && cmake .. \
 	  -DGNUSTEP_INSTALL_TYPE=SYSTEM \
