@@ -44,11 +44,24 @@ install: check_root
 	cd $$WORKDIR/apps-easydiff && eval "$$MAKE" && eval "$$MAKE" install; \
 	cd $$WORKDIR/apps-gorm && eval "$$MAKE" && eval "$$MAKE" install; \
 	cd $$WORKDIR/apps-projectcenter && eval "$$MAKE" && eval "$$MAKE" install; \
+	# Symlink GNUstep.sh to /etc/profile.d/GNUstep.sh \
+	if [ ! -d "/etc/profile.d" ]; then \
+	  mkdir -p /etc/profile.d; \
+	fi; \
+	if [ -f "/usr/GNUstep/System/Library/Makefiles/GNUstep.sh" ]; then \
+	  ln -sf /usr/GNUstep/System/Library/Makefiles/GNUstep.sh /etc/profile.d/GNUstep.sh; \
+	  echo "Symlinked /usr/GNUstep/System/Library/Makefiles/GNUstep.sh to /etc/profile.d/GNUstep.sh"; \
+	fi; \
 	fi;
 
 # Define the uninstall target
 uninstall: check_root
 	@removed=""; \
+	if [ -L "/etc/profile.d/GNUstep.sh" ]; then \
+	  rm -f /etc/profile.d/GNUstep.sh; \
+	  removed="$$removed /etc/profile.d/GNUstep.sh"; \
+	  echo "Removed symlink /etc/profile.d/GNUstep.sh"; \
+	fi; \
 	if [ -d "/usr/GNUstep" ]; then \
 	  rm -rf /usr/GNUstep; \
 	  removed="/usr/GNUstep"; \
