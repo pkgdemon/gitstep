@@ -27,6 +27,15 @@ install: check_root
 	  --with-config-file=/System/Library/Defaults/GNUstep.conf \
 	  --with-library-combo=ng-gnu-gnu \
 	&& eval "$$MAKE" || exit 1 && eval "$$MAKE install"; \
+		. /System/Makefiles/GNUstep.sh; \
+	mkdir -p $$WORKDIR/libobjc2/Build; \
+	cd $$WORKDIR/libobjc2/Build && pwd && ls && cmake .. \
+	  -DGNUSTEP_INSTALL_TYPE=SYSTEM \
+	  -DCMAKE_BUILD_TYPE=Release \
+	  -DCMAKE_C_COMPILER=clang \
+	  -DCMAKE_CXX_COMPILER=clang++; \
+	eval "$$MAKE"" || exit 1; \
+	eval "$$MAKE" install; \
 	fi;
 
 # Define the uninstall target
