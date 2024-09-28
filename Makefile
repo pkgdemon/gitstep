@@ -66,7 +66,7 @@ uninstall: check_root
 	fi
 
 # Define the clean target
-clean:
+clean: check_root
 	@echo "Cleaning main project..."
 	@WORKDIR=`pwd`; \
 	if [ -d "$$WORKDIR" ]; then \
