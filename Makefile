@@ -14,6 +14,14 @@ install: check_root
 	WORKDIR=`pwd`; \
 	CPUS=`nproc`; \
 	OS=`uname -s | tr '[:upper:]' '[:lower:]'`; \
+	case "$$(command -v gmake 2>/dev/null)" in \
+		*gmake) \
+			MAKE="gmake -j$$CPUS"; \
+			;; \
+		*) \
+			MAKE="make -j$$CPUS"; \
+			;; \
+	esac; \
 	# Detect the make command \
 	if command -v gmake >/dev/null 2>&1; then \
 		MAKE="gmake -j$$CPUS"; \
@@ -44,14 +52,9 @@ install: check_root
 	cd $$WORKDIR/apps-easydiff && eval "$$MAKE" && eval "$$MAKE" install; \
 	cd $$WORKDIR/apps-gorm && eval "$$MAKE" && eval "$$MAKE" install; \
 	cd $$WORKDIR/apps-projectcenter && eval "$$MAKE" && eval "$$MAKE" install; \
-	# Symlink GNUstep.sh to /etc/profile.d/GNUstep.sh \
-	if [ ! -d "/etc/profile.d" ]; then \
-	  mkdir -p /etc/profile.d; \
-	fi; \
-	if [ -f "/usr/GNUstep/System/Library/Makefiles/GNUstep.sh" ]; then \
-	  ln -sf /usr/GNUstep/System/Library/Makefiles/GNUstep.sh /etc/profile.d/GNUstep.sh; \
-	  echo "Symlinked /usr/GNUstep/System/Library/Makefiles/GNUstep.sh to /etc/profile.d/GNUstep.sh"; \
-	fi; \
+	mkdir -p /etc/profile.d >/dev/null 2>&1 || true; \
+	ln -sf /usr/GNUstep/System/Library/Makefiles/GNUstep.sh /etc/profile.d/GNUstep.sh >/dev/null 2>&1 || true; \
+	echo "Symlinked /usr/GNUstep/System/Library/Makefiles/GNUstep.sh to /etc/profile.d/GNUstep.sh"; \
 	fi;
 
 # Define the uninstall target
