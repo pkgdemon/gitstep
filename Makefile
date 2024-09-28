@@ -47,7 +47,7 @@ uninstall: check_root
 	  echo "Removed /System"; \
 	fi; \
 	if [ -n "$$removed" ]; then \
-	  return 0; \
+	  exit 0; \
 	else \
 	  echo "System appears to be already uninstalled.  Nothing was removed"; \
 	fi
