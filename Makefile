@@ -76,4 +76,8 @@ clean: check_root
 	fi
 	@echo "Cleaning git submodules..."
 	@git submodule foreach --recursive 'echo "Cleaning $$name"; git clean -fdx; git reset --hard'
+	@if [ -d "libobjc2/Build" ]; then \
+		echo "Removing libobjc2/Build..."; \
+		sudo rm -rf libobjc2/Build; \
+	fi
 	@echo "Clean complete."
