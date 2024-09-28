@@ -7,7 +7,7 @@ check_root:
 
 # Define the install target
 install: check_root
-	@if [ -d "/System" ]; then \
+	@if [ -d "/usr/GNUstep" ]; then \
 	  echo "GNUstep is already installed"; \
 	  exit 0; \
 	else \
