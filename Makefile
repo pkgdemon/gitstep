@@ -42,6 +42,7 @@ install: check_root
 	cd $$WORKDIR/apps-gworkspace && ./configure && eval "$$MAKE" && eval "$$MAKE" install; \
 	cd $$WORKDIR/apps-systempreferences && eval "$$MAKE" && eval "$$MAKE" install; \
 	unset GNUSTEP_INSTALLATION_DOMAIN; \
+	cd $$WORKDIR/gap && eval "$$MAKE" && eval "$$MAKE" install; \
 	fi;
 
 # Define the uninstall target
