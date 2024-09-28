@@ -8,7 +8,7 @@ check_root:
 # Define the install target
 install: check_root
 	@if [ -d "/System" ]; then \
-	  echo "System appears to be already installed."; \
+	  echo "GNUstep is already installed"; \
 	  exit 0; \
 	else \
 	WORKDIR=`pwd`; \
@@ -62,7 +62,7 @@ uninstall: check_root
 	if [ -n "$$removed" ]; then \
 	  exit 0; \
 	else \
-	  echo "No items were removed. It appears that nothing was installed yet."; \
+	  echo "No items needed to be removed."; \
 	fi
 
 # Define the clean target
