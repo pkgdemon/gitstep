@@ -1,18 +1,9 @@
-# Makefile
-
 # Check if running as root
 check_root:
 	@if [ $$(id -u) -ne 0 ]; then \
 		echo "This Makefile must be run as root or with sudo."; \
 		exit 1; \
 	fi
-
-# Set MAKE variable based on availability of gmake
-ifeq ($(shell gmake -v >/dev/null 2>&1 && echo yes),yes)
-	MAKE = gmake -j$(shell nproc)
-else
-	MAKE = make -j$(shell nproc)
-endif
 
 # Define the install target
 install: check_root
@@ -22,8 +13,13 @@ install: check_root
 	else \
 	WORKDIR=`pwd`; \
 	CPUS=`nproc`; \
-	export GNUSTEP_INSTALLATION_DOMAIN="SYSTEM"; \
 	OS=`uname -s | tr '[:upper:]' '[:lower:]'`; \
+	# Detect the make command \
+	if command -v gmake >/dev/null 2>&1; then \
+		MAKE="gmake -j$$CPUS"; \
+	else \
+		MAKE="make -j$$CPUS"; \
+	fi; \
 	case "$$OS" in \
 		"freebsd") \
 			echo "Detected FreeBSD, running install-dependencies-freebsd script."; \
@@ -41,12 +37,13 @@ install: check_root
 			echo "Unsupported OS detected: $$OS. Exiting."; \
 			exit 1;; \
 	esac; \
+	export GNUSTEP_INSTALLATION_DOMAIN="SYSTEM"; \
 	cd $$WORKDIR/tools-make && ./configure \
 	  --prefix="/" \
       --with-layout=gnustep \
 	  --with-config-file=/System/Library/Defaults/GNUstep.conf \
 	  --with-library-combo=ng-gnu-gnu \
-	&& $(MAKE) || exit 1 && $(MAKE) install; \
+	&& eval "$$MAKE" || exit 1 && eval "$$MAKE install"; \
 	fi;
 
 # Define the uninstall target
@@ -63,9 +60,8 @@ uninstall: check_root
 	  echo "System appears to be already uninstalled.  Nothing was removed"; \
 	fi
 
-
 # Define the clean target
-clean: check_root
+clean:
 	@echo "Cleaning main project..."
 	@WORKDIR=`pwd`; \
 	if [ -d "$$WORKDIR" ]; then \
