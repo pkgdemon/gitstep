@@ -42,6 +42,9 @@ install: check_root
 	cd $$WORKDIR/apps-systempreferences && eval "$$MAKE" && eval "$$MAKE" install; \
 	unset GNUSTEP_INSTALLATION_DOMAIN; \
 	cd $$WORKDIR/gap && eval "$$MAKE" && eval "$$MAKE" install; \
+	cd $$WORKDIR/apps-easydiff && eval "$$MAKE" && eval "$$MAKE" install; \
+	cd $$WORKDIR/apps-gorm && eval "$$MAKE" && eval "$$MAKE" install; \
+	cd $$WORKDIR/apps-projectcenter && eval "$$MAKE" && eval "$$MAKE" install; \
 	fi;
 
 # Define the uninstall target
